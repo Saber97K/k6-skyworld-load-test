@@ -54,17 +54,16 @@ jobs:
   run-k6-test:
     runs-on: "${{ github.event.inputs.runner }}"
     steps:
-      - name: auth-login
+      - name: Checkout code
         uses: actions/checkout@v2
         
       - name: Run k6 load test
         run: |
-          export K6_PROMETHEUS_RW_SERVER_URL=http://localhost:9090/api/v1/write
-          export K6_PROMETHEUS_RW_TREND_AS_NATIVE_HISTOGRAM=true
+          $env:K6_PROMETHEUS_RW_SERVER_URL = "http://localhost:9090/api/v1/write"
+          $env:K6_PROMETHEUS_RW_TREND_AS_NATIVE_HISTOGRAM = "true"
           
           k6 run -o experimental-prometheus-rw --insecure-skip-tls-verify ${{ github.event.inputs.file_path }}
         env:
-          
           VUS: "${{ github.event.inputs.vus }}"  
           RAMPING_UP_RATE: "${{ github.event.inputs.ramping_up_rate }}"
           STAY_RATE: "${{ github.event.inputs.stay_rate }}"
