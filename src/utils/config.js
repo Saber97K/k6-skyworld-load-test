@@ -7,3 +7,5 @@ export const RAMPING_DOWN_RATE = __ENV.RAMPING_DOWN_RATE;
 export const RAMPING_UP_TIME = __ENV.RAMPING_UP_TIME;
 export const STAY_TIME = __ENV.STAY_TIME;
 export const RAMPING_DOWN_TIME = __ENV.RAMPING_DOWN_TIME;
+export const K6_PROMETHEUS_RW_SERVER_URL = "http://localhost:9090/api/v1/write";
+export const K6_PROMETHEUS_RW_TREND_AS_NATIVE_HISTOGRAM = "true";
