@@ -4,17 +4,22 @@ import { URL } from "https://jslib.k6.io/url/1.0.0/index.js";
 import { api } from "../utils/api.js";
 import * as config from "../utils/config.js";
 
+
 export const options = {
   scenarios: {
-    constant_load: {
-      executor: "constant-vus",
-      vus: config.VUS, // Number of VUs to run
-      duration: config.TEST_DURATION, // Duration for which the VUs should run
-      startTime: "0s", // When to start the scenario
-      gracefulStop: "30s", // Time to wait for VUs to complete their iterations
+    rate_load: {
+      executor: "ramping-arrival-rate",
+      timeUnit: "1s", 
+      preAllocatedVUs: config.VUS, 
+      stages: [
+        { target: config.RAMPING_UP_RATE, duration: config.RAMPING_UP_TIME },
+        { target: STAY_RATE, duration: STAY_TIME }, 
+        { target: RAMPING_DOWN_RATE, duration: RAMPING_DOWN_TIME }, 
+      ],
     },
   },
 };
+
 
 export default function () {
   const url = new URL(api().authLogin); 

@@ -1,2 +1,9 @@
 export const VUS = __ENV.VUS;
-export const TEST_DURATION = __ENV.TEST_DURATION;
+
+export const RAMPING_UP_RATE = __ENV.RAMPING_UP_RATE;
+export const STAY_RATE = __ENV.STAY_RATE;
+export const RAMPING_DOWN_RATE = __ENV.RAMPING_DOWN_RATE;
+
+export const RAMPING_UP_TIME = __ENV.RAMPING_UP_TIME;
+export const STAY_TIME = __ENV.STAY_TIME;
+export const RAMPING_DOWN_TIME = __ENV.RAMPING_DOWN_TIME;
