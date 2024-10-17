@@ -25,10 +25,6 @@ on:
         description: "Number of pre-allocated VUs"
         required: true
         default: "1"
-      test_duration:
-        description: "Total test duration"
-        required: true
-        default: "10s"
       ramping_up_rate:
         description: "Ramping up rate (requests per second)"
         required: true
