@@ -17,10 +17,10 @@ on:
       file_path:
         description: 'File Path'
         required: true
-        default: '/src\tests\auth-login.js'
+        default: '/src/tests/auth-login.js'
         type: choice
         options:
-          - '/src\tests\auth-login.js'
+          - '/src/tests/auth-login.js'
       vus:
         description: "Number of pre-allocated VUs"
         required: true

@@ -13,8 +13,8 @@ export const options = {
       preAllocatedVUs: config.VUS, 
       stages: [
         { target: config.RAMPING_UP_RATE, duration: config.RAMPING_UP_TIME },
-        { target: STAY_RATE, duration: STAY_TIME }, 
-        { target: RAMPING_DOWN_RATE, duration: RAMPING_DOWN_TIME }, 
+        { target: config.STAY_RATE, duration: config.STAY_TIME }, 
+        { target: config.RAMPING_DOWN_RATE, duration: config.RAMPING_DOWN_TIME }, 
       ],
     },
   },
