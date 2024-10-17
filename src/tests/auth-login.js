@@ -2,6 +2,7 @@ import http from "k6/http";
 import { check } from "k6";
 import { URL } from "https://jslib.k6.io/url/1.0.0/index.js";
 import { api } from "../utils/api.js";
+import * as config from "../utils/config.js";
 
 export const options = {
   scenarios: {
