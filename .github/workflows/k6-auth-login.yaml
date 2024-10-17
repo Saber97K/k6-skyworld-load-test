@@ -35,12 +35,11 @@ jobs:
     runs-on: "${{ github.event.inputs.runner }}"
     steps:
       - name: auth-login
-        uses: self-hosted
+        uses: actions/checkout@v2
+        
+      - name: Run k6 load test
+        run: |
+          k6 run --vus ${{ github.event.inputs.vus }} --duration ${{ github.event.inputs.test_duration }} ${{ github.event.inputs.file_path }}
         env:
           TEST_DURATION: "${{ github.event.inputs.test_duration }}"  
           VUS: "${{ github.event.inputs.vus }}"  
-        with:
-          file_path: "${{ github.event.inputs.file_path }}"
-          vus: "${{ github.event.inputs.vus }}"
-          test_duration: "${{ github.event.inputs.test_duration }}"
-          debug: true
