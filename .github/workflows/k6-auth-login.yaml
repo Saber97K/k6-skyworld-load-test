@@ -39,7 +39,7 @@ jobs:
         
       - name: Run k6 load test
         run: |
-          k6 run --vus ${{ github.event.inputs.vus }} --duration ${{ github.event.inputs.test_duration }} ${{ github.event.inputs.file_path }}
+          k6 run --insecure-skip-tls-verify --vus ${{ github.event.inputs.vus }} --duration ${{ github.event.inputs.test_duration }} ${{ github.event.inputs.file_path }}
         env:
           TEST_DURATION: "${{ github.event.inputs.test_duration }}"  
           VUS: "${{ github.event.inputs.vus }}"  
