@@ -1,0 +1,23 @@
+{
+  "name": "ml-k6-load-test",
+  "version": "1.0.0",
+  "description": "## Introduction Grafana k6 is an open-source load testing tool that makes performance testing easy and productive for engineering teams. k6 is free, developer-centric, and extensible.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoneyLion/ml-k6-load-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MoneyLion/ml-k6-load-test/issues"
+  },
+  "homepage": "https://github.com/MoneyLion/ml-k6-load-test#readme",
+  "devDependencies": {
+    "@types/k6": "^0.45.0"
+  }
+}

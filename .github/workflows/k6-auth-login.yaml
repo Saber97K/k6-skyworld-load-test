@@ -1,0 +1,46 @@
+name: k6-auth-login # Specify your workflow name
+
+permissions:
+  id-token: write
+  contents: read
+
+on:
+  workflow_dispatch:
+    inputs:
+      runner:
+        description: "Choose the runner"
+        type: choice
+        required: false
+        default: "self-hosted"
+        options:
+          - "self-hosted"
+      file_path:
+        description: 'File Path'
+        required: true
+        default: '/src\tests\auth-login.js'
+        type: choice
+        options:
+          - '/src\tests\auth-login.js'
+      vus:
+        description: "vus"
+        required: true
+        default: "1"
+      test_duration:
+        description: "test_duration"
+        required: true
+        default: "10s"
+
+jobs:
+  run-k6-test:
+    runs-on: "${{ github.event.inputs.runner }}"
+    steps:
+      - name: auth-login
+        uses: self-hosted
+        env:
+          TEST_DURATION: "${{ github.event.inputs.test_duration }}"  
+          VUS: "${{ github.event.inputs.vus }}"  
+        with:
+          file_path: "${{ github.event.inputs.file_path }}"
+          vus: "${{ github.event.inputs.vus }}"
+          test_duration: "${{ github.event.inputs.test_duration }}"
+          debug: true
